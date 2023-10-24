@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+     <title>Home Page</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"><a href="index.html">Health&Fitness App</a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="index.html">Health&Fitness App</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="exercises.html">Exercises</a></li>
+                    <li><a href="nutrition.html">Nutrition</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+<script>
+
+const body = document.querySelector("body"),
+      nav = document.querySelector("nav"),
+      modeToggle = document.querySelector(".dark-light"),
+      searchToggle = document.querySelector(".searchToggle"),
+      sidebarOpen = document.querySelector(".sidebarOpen"),
+      siderbarClose = document.querySelector(".siderbarClose");
+
+      let getMode = localStorage.getItem("mode");
+          if(getMode && getMode === "dark-mode"){
+            body.classList.add("dark");
+          }
+
+// js code to toggle dark and light mode
+      modeToggle.addEventListener("click" , () =>{
+        modeToggle.classList.toggle("active");
+        body.classList.toggle("dark");
+
+        // js code to keep user selected mode even page refresh or file reopen
+        if(!body.classList.contains("dark")){
+            localStorage.setItem("mode" , "light-mode");
+        }else{
+            localStorage.setItem("mode" , "dark-mode");
+        }
+      });
+      
+//   js code to toggle sidebar
+sidebarOpen.addEventListener("click" , () =>{
+    nav.classList.add("active");
+});
+
+body.addEventListener("click" , e =>{
+    let clickedElm = e.target;
+
+    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
+        nav.classList.remove("active");
+    }
+});
+
+</script>
+<link rel="stylesheet" href="style-index.css">
+
+
+<section class="hero-section">
+    <div class="hero">
+      <h2>Welcome To the World of Health and Fitness</h2>
+      <p>
+        Join us, we will help you to track and improve your performance in health and fitness.
+        </p>
+        <p>
+        Scroll down to learn more about what we will cover for you.
+      </p>
+      <div class="buttons">
+        <a href="login.html" class="join">Join Now</a>
+      </div>
+    </div>
+
+    </section>
+
+
+</head>
+<body>
+    <div class="card-list">
+        <a href="profile.html" class="card-item">
+            <img src="https://img.freepik.com/free-vector/set-social-people-media-profile-member_24877-53571.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1698105600&semt=ais" alt="Card Image">
+            <span class="Profile">Profile</span>
+            <h3>See your progress here</h3>
+            <h4>Filled out your user profile, to know about your overall health.</h4>
+        </a>
+        <a href="exercises.html" class="card-item">
+            <img src="https://static.vecteezy.com/system/resources/previews/013/652/400/original/gym-fitness-exercises-icons-gym-training-workout-fitness-exercises-round-pictograms-set-illustration-vector.jpg" alt="Card Image">
+            <span class="Exercises">Exercises</span>
+            <h3>Maximise your time and potential in the gym</h3>
+            <h4>Plan out your exercises, before you start going to the gym.</h4>
+        </a>
+        <a href="nutrition.html" class="card-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3lVw1WSt1wm6it47NfMQHc7RqtburGas34g&usqp=CAU" alt="Card Image">
+            <span class="Nutrition">Nutrition</span>
+            <h3>Don't forget your diet as well</h3>
+            <h4>Shows the nutrition and what do you put inside your body and track your intakes</h4>
+        </a>
+    </div>
+
+
+</body>
+</html>

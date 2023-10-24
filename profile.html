@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+     <title>User Profile Page</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"><a href="index.html">Health&Fitness App</a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="profile.html">Health&Fitness App</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="exercises.html">Exercises</a></li>
+                    <li><a href="nutrition.html">Nutrition</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+<script>
+
+const body = document.querySelector("body"),
+      nav = document.querySelector("nav"),
+      modeToggle = document.querySelector(".dark-light"),
+      searchToggle = document.querySelector(".searchToggle"),
+      sidebarOpen = document.querySelector(".sidebarOpen"),
+      siderbarClose = document.querySelector(".siderbarClose");
+
+      let getMode = localStorage.getItem("mode");
+          if(getMode && getMode === "dark-mode"){
+            body.classList.add("dark");
+          }
+
+// js code to toggle dark and light mode
+      modeToggle.addEventListener("click" , () =>{
+        modeToggle.classList.toggle("active");
+        body.classList.toggle("dark");
+
+        // js code to keep user selected mode even page refresh or file reopen
+        if(!body.classList.contains("dark")){
+            localStorage.setItem("mode" , "light-mode");
+        }else{
+            localStorage.setItem("mode" , "dark-mode");
+        }
+      });
+      
+//   js code to toggle sidebar
+sidebarOpen.addEventListener("click" , () =>{
+    nav.classList.add("active");
+});
+
+body.addEventListener("click" , e =>{
+    let clickedElm = e.target;
+
+    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
+        nav.classList.remove("active");
+    }
+});
+
+</script>
+
+<link rel="stylesheet" href="style-profile.css">
+
+<header>
+    <h1>Christopher Yudal's Portfolio</h1>
+    <p>Office Worker | Age: 29 | Fitness Enthusiast</p>
+</header>
+
+<div id="portfolio">
+    <header>
+        <h1>Hello there Christoper Yudal</h1>
+        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/02/79/1c/ec/filename-dsc01206-jpg.jpg?w=1200&h=-1&s=1" sizes="">
+    </header>
+
+    <h2>BMI Calculator</h2>
+    <label for="height">Height (cm):</label>
+    <input type="number" id="height" placeholder="Enter your height">
+    <label for="weight">Weight (kg):</label>
+    <input type="number" id="weight" placeholder="Enter your weight">
+    <label for="gender">Gender:</label>
+    <select id="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <button onclick="calculateBMI()">Calculate BMI</button>
+    <p id="result">Your BMI will be calculated here.</p>
+</div>
+
+
+<script>
+    function calculateBMI() {
+        const height = parseFloat(document.getElementById('height').value);
+        const weight = parseFloat(document.getElementById('weight').value);
+        const gender = document.getElementById('gender').value;
+
+        if (!isNaN(height) && !isNaN(weight)) {
+            const bmi = calculateBMIValue(height, weight);
+            const interpretation = getBMIInterpretation(bmi, gender);
+            document.getElementById('result').textContent = `Your BMI: ${bmi.toFixed(2)} - ${interpretation}`;
+        } else {
+            document.getElementById('result').textContent = 'Please enter valid height and weight values.';
+        }
+    }
+
+    function calculateBMIValue(height, weight) {
+        // BMI formula: weight (kg) / (height (m) * height (m))
+        const heightMeters = height / 100;
+        return weight / (heightMeters * heightMeters);
+    }
+
+    function getBMIInterpretation(bmi, gender) {
+        if (gender === 'male') {
+            if (bmi < 18.5) {
+                return 'Underweight';
+            } else if (bmi < 24.9) {
+                return 'Healthy weight';
+            } else {
+                return 'Overweight';
+            }
+        } else {
+            if (bmi < 18.5) {
+                return 'Underweight';
+            } else if (bmi < 24.9) {
+                return 'Healthy weight';
+            } else {
+                return 'Overweight';
+            }
+        }
+    }
+</script>
+
+
+
+
+
+</body>
+</html>
