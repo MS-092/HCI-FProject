@@ -95,6 +95,7 @@ body {
     aspect-ratio: 16/9;
     border-radius: 8px;
     object-fit: cover;
+    margin: 0 auto;
 }
 
 .card-list span {
