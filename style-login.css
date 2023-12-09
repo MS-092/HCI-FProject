@@ -34,6 +34,7 @@ body::before {
   border: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
+  animation: fadeIn 1s;
 }
 
 form {
@@ -134,4 +135,16 @@ button:hover {
   text-align: center;
   margin-top: 30px;
   color: #fff;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotateX(0);
+    }
 }
