@@ -23,6 +23,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
   }
+
   .hero-section .hero {
     max-width: 50%;
     color: #053f63;
@@ -35,12 +36,14 @@ body {
     font-size: 1.2rem;
     margin-bottom: 20px;
     color: #c9c7c7;
+    animation: fadeIn 1s;
   }
   .hero-section .img img {
     width: 517px;
   }
   .hero-section .buttons {
     margin-top: 40px;
+    animation: fadeIn 1s;
   }
   .hero-section .buttons a {
     text-decoration: none;
@@ -72,6 +75,7 @@ body {
     margin: 150px auto;
     padding: 20px;
     gap: 20px;
+    animation: fadeIn 1.2s;
 }
 
 .card-list .card-item {
@@ -165,5 +169,17 @@ body {
 @media screen and (max-width: 980px) {
     .card-list {
         margin: 0 auto;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotateX(0);
     }
 }
