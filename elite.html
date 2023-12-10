@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+     <title>Exercise Page</title>
+</head>
+<body>
+     <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"><a href="index.html">Health&Fitness App</a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="exercises.html">Health&Fitness App</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="exercises.html">Exercises</a></li>
+                    <li><a href="nutrition.html">Nutrition</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div class="container">
+    <h1>Full Body Workout Schedule</h1>
+    <div class="days">
+        <div class="day">
+            <h2>Day 1: chest and triceps</h2>
+            <ul id="chest-triceps">
+                <!-- Activities will be added dynamically using JavaScript -->
+            </ul>
+        </div>
+
+        <div class="day">
+            <h2>Day 2: Back and Biceps</h2>
+            <ul id="back-biceps">
+                <!-- Activities will be added dynamically using JavaScript -->
+            </ul>
+        </div>
+
+        <div class="day">
+            <h2>Day 3: Legs</h2>
+            <ul id="legs">
+                <!-- Activities will be added dynamically using JavaScript -->
+            </ul>
+        </div>
+
+        <div class="day">
+            <h2>Day 4: Shoulders and Abs</h2>
+            <ul id="shoulders-abs">
+                <!-- Activities will be added dynamically using JavaScript -->
+            </ul>
+        </div>
+
+        <div class="day">
+            <h2>Day 5: Active Recovery</h2>
+            <ul id="rest1">
+                <!-- Activities will be added dynamically using JavaScript -->
+            </ul>
+        </div>
+
+        <div class="day">
+            <h2>Day 6: Full Body HIIT</h2>
+            <ul id="hiit">
+                <!-- Activities will be added dynamically using JavaScript -->
+            </ul>
+        </div>
+
+        <div class="day">
+            <h2>Day 7: Rest</h2>
+            <ul id="rest2">
+                <!-- Activities will be added dynamically using JavaScript -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+
+const body = document.querySelector("body"),
+      nav = document.querySelector("nav"),
+      modeToggle = document.querySelector(".dark-light"),
+      searchToggle = document.querySelector(".searchToggle"),
+      sidebarOpen = document.querySelector(".sidebarOpen"),
+      siderbarClose = document.querySelector(".siderbarClose");
+
+      let getMode = localStorage.getItem("mode");
+          if(getMode && getMode === "dark-mode"){
+            body.classList.add("dark");
+          }
+
+// js code to toggle dark and light mode
+      modeToggle.addEventListener("click" , () =>{
+        modeToggle.classList.toggle("active");
+        body.classList.toggle("dark");
+
+        // js code to keep user selected mode even page refresh or file reopen
+        if(!body.classList.contains("dark")){
+            localStorage.setItem("mode" , "light-mode");
+        }else{
+            localStorage.setItem("mode" , "dark-mode");
+        }
+      });
+      
+//   js code to toggle sidebar
+sidebarOpen.addEventListener("click" , () =>{
+    nav.classList.add("active");
+});
+
+body.addEventListener("click" , e =>{
+    let clickedElm = e.target;
+
+    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
+        nav.classList.remove("active");
+    }
+});
+
+// Workout schedule data for each day
+    const workoutPlan = [
+      "Bench Press: 4 sets of 8 reps",
+      "Incline Dumbbell Press: 3 sets of 10 reps",
+      "Tricep Dips: 3 sets to failure",
+      "Skull Crushers: 3 sets of 10 reps",
+      "Tricep Rope Pushdowns: 3 sets of 12 reps"
+    ];
+    
+    const workoutplan0 =[
+        "Deadlifts: 4 sets of 4-6 reps",
+        "Pull-ups (weighted, if possible): 4 sets of 6-8 reps",
+        "Bent-over Barbell Rows: 4 sets of 8-10 reps",
+        "Barbell or Dumbbell Curls: 3 sets of 8-10 reps",
+        "Hammer Curls: 3 sets of 10 reps"
+    ];
+
+    const workoutplan1 =[
+        "Squats: 4 sets of 6-8 reps",
+        "Romanian Deadlifts: 4 sets of 8-10 reps",
+        "Bulgarian Split Squats: 3 sets of 10 reps each leg",
+        "Leg Press: 3 sets of 12 reps",
+        "Standing Calf Raises: 4 sets of 15 reps"
+    ];
+
+    const workoutplan2 =[
+        "Overhead Barbell Press: 4 sets of 6-8 reps",
+        "Dumbbell Lateral Raises: 4 sets of 10-12 reps",
+        "Arnold Press: 3 sets of 8-10 reps",
+        "Hanging Leg Raises: 4 sets of 12 reps",
+        "Plank Variations: 3 sets of 1 minute each",
+    ];
+
+    const workoutplan3 =[
+        "Engage in light activity, mobility work, or yoga"
+    ];
+
+    const workoutplan4 =[
+        "burpees 3 set 30 sec",
+        "squat jumps 3 set 30 sec",
+        "rest for 30 sec",
+        "mountain climbers 3 set of 30 min",
+        "kettlebell swings 3 set 30 min",
+        "repeat 2-3 times"
+    ];
+
+    const workoutplan5 =[
+        "Rest"
+    ];
+  
+// Function to populate the workout schedule
+function populateWorkoutSchedule() {
+    const workoutList = document.getElementById("chest-triceps");
+    const workoutList0 = document.getElementById("back-biceps");
+    const workoutList1 = document.getElementById("legs");
+    const workoutList2 = document.getElementById("shoulders-abs");
+    const workoutList3 = document.getElementById("rest1");
+    const workoutList4 = document.getElementById("hiit");
+    const workoutList5 = document.getElementById("rest2");
+
+    // Populate Day1 activities
+    workoutPlan.forEach(activity => {
+        const listItem = document.createElement("ul");
+        listItem.textContent = activity;
+        workoutList.appendChild(listItem);
+    });
+
+    // Populate Day 2 activities
+    workoutplan0.forEach(activity => {
+        const listItem = document.createElement("ul");
+        listItem.textContent = activity;
+        workoutList0.appendChild(listItem);
+    });
+
+    // Populate Day 3 activities
+    workoutplan1.forEach(activity => {
+        const listItem = document.createElement("ul");
+        listItem.textContent = activity;
+        workoutList1.appendChild(listItem);
+    });
+
+    // Populate Day 4 activities
+    workoutplan2.forEach(activity => {
+        const listItem = document.createElement("ul");
+        listItem.textContent = activity;
+        workoutList2.appendChild(listItem);
+    });
+
+    // Populate Day 5 activities
+    workoutplan3.forEach(activity => {
+        const listItem = document.createElement("ul");
+        listItem.textContent = activity;
+        workoutList3.appendChild(listItem);
+    });
+
+    // Populate Day 6 activities
+    workoutplan4.forEach(activity => {
+        const listItem = document.createElement("ul");
+        listItem.textContent = activity;
+        workoutList4.appendChild(listItem);
+    });
+
+    // Populate Day 7 activities
+    workoutplan5.forEach(activity => {
+        const listItem = document.createElement("ul");
+        listItem.textContent = activity;
+        workoutList5.appendChild(listItem);
+    });
+}
+
+// Call the function to populate the workout schedule
+populateWorkoutSchedule();
+</script>
+
+<link rel="stylesheet" href="style-index.css">
+</body>
+</html>

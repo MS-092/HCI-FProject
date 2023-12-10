@@ -12,7 +12,7 @@
      <title>Exercise Page</title>
 </head>
 <body>
-    <nav>
+     <nav>
         <div class="nav-bar">
             <i class='bx bx-menu sidebarOpen' ></i>
             <span class="logo navLogo"><a href="index.html">Health&Fitness App</a></span>
@@ -43,6 +43,31 @@
         </div>
     </nav>
 
+<div class="container">
+    <h1>Push-pull-leg Workout Schedule</h1>
+    <div class="schedule">
+        <div class="time-slot">
+            <h2>Day 1: Push</h2>
+            <ul id="push-workout">
+                <!-- Activities will be added dynamically using JavaScript -->
+            </ul>
+        </div>
+
+        <div class="time-slot">
+            <h2>Day 2: Pull</h2>
+            <ul id="pull-workout">
+                <!-- Activities will be added dynamically using JavaScript -->
+            </ul>
+        </div>
+
+        <div class="time-slot">
+            <h2>Day 3: Leg</h2>
+            <ul id="leg-workout">
+                <!-- Activities will be added dynamically using JavaScript -->
+            </ul>
+        </div>
+    </div>
+</div>
 
 <script>
 
@@ -84,32 +109,65 @@ body.addEventListener("click" , e =>{
     }
 });
 
+// Workout schedule data
+const pushActivities = [
+    "Barbell Bench Press: 4 sets of 8-10 reps",
+    "Dumbbell Shoulder Press: 3 sets of 10 reps",
+    "Tricep Dips: 3 sets of 12 reps",
+    "Lateral Raises: 3 sets of 12 reps",
+    "Push-ups: 3 sets to failures",
+    "Cardio",
+];
+
+const pullActivities = [
+    "Deadlifts: 4 sets of 6-8 reps",
+    "Pull-ups/Chin-ups: 3 sets to failure",
+    "Barbell Rows: 3 sets of 10 reps",
+    "Face Pulls: 3 sets of 12 reps",
+    "Bicep Curls: 3 sets of 10 reps",
+    "Cardio",
+];
+
+const legActivities = [
+    "Squats: 4 sets of 8-10 reps",
+    "Romanian Deadlifts: 3 sets of 10 repss",
+    "Leg Press: 3 sets of 12 reps",
+    "Calf Raises: 4 sets of 15 reps",
+    "Walking Lunges: 3 sets of 12 steps per leg",
+];
+
+// Function to populate the workout schedule
+function populateWorkoutSchedule() {
+    const pushList = document.getElementById("push-workout");
+    const pullList = document.getElementById("pull-workout");
+    const legList = document.getElementById("leg-workout");
+
+    // Populate Push activities
+    pushActivities.forEach(activity => {
+        const listItem = document.createElement("li");
+        listItem.textContent = activity;
+        pushList.appendChild(listItem);
+    });
+
+    // Populate Pull activities
+    pullActivities.forEach(activity => {
+        const listItem = document.createElement("li");
+        listItem.textContent = activity;
+        pullList.appendChild(listItem);
+    });
+
+    // Populate Leg activities
+    legActivities.forEach(activity => {
+        const listItem = document.createElement("li");
+        listItem.textContent = activity;
+        legList.appendChild(listItem);
+    });
+}
+
+// Call the function to populate the workout schedule
+populateWorkoutSchedule();
 </script>
+
 <link rel="stylesheet" href="style-index.css">
-
-<div class="card-list">
-    <a href="fullbody.html" class="card-item">
-        <img src="https://media.tenor.com/nm8TTgQyVFwAAAAC/workout-pull.gif" alt="Card Image">
-        <span class="Profile">Workout</span>
-        <h3>Full-Body</h3>
-        <h4>For beginners</h4>
-        <h4>Focus on all the major muscle groups in one single session</h4>
-    </a>
-    <a href="ppl.html" class="card-item">
-        <img src="https://i.pinimg.com/originals/44/96/dd/4496dd7bcca41328bdc88aca13f848c8.gif" alt="Card Image">
-        <span class="Exercises">Workout</span>
-        <h3>Push-pull-leg(PPL)</h3>
-        <h4>For intermediates</h4>
-        <h4>Focus on compound movements and moderate volume</h4>
-    </a>
-    <a href="elite.html" class="card-item">
-        <img src="https://cdn.dribbble.com/users/2491361/screenshots/6684971/final-dribbble-_converted_.gif" alt="Card Image">
-        <span class="Nutrition">Workout</span>
-        <h3>Elite or Intense</h3>
-        <h4>For advanced</h4>
-        <h4>Focus on gradually increasing resistance, volume, or intensity over time</h4>
-    </a>
-</div>
-
 </body>
 </html>

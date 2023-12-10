@@ -216,6 +216,15 @@ body.dark .search-field i{
         display: block;
         margin-top: 20px;
     }
+    
+    .schedule {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .time-slot {
+        width: 100%;
+    }
 }
 
 body {
@@ -280,3 +289,34 @@ button:hover {
 #result {
     font-weight: bold;
 }
+
+.container {
+    max-width: 800px;
+    margin: 100px auto 20px auto; 
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.schedule {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.time-slot {
+    flex: 1;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+  .day {
+    margin-bottom: 30px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding-left: 20px;
+  }
