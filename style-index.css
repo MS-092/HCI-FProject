@@ -26,12 +26,32 @@ body {
 
   .hero-section .hero {
     max-width: 50%;
-    color: #053f63;
+    color: #fff;
   }
-  .hero h2 {
+  .hero h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    font-weight: 600;
   }
+  .hero h1 span {
+    color: #00FFFF;
+    position: relative;
+  }
+  .hero h1 span::before {
+      content: "";
+      height: 30px;
+      width: 2px;
+      position: absolute;
+      top: 50%;
+      right: -8px;
+      background: #00FFFF;
+      transform: translateY(-45%);
+      animation: blink 0.7s infinite;
+  }
+  .hero h1 span.stop-blinking::before {
+      animation: none;
+  }
+
   .hero p {
     font-size: 1.2rem;
     margin-bottom: 20px;
@@ -172,6 +192,10 @@ body {
     }
 }
 
+@keyframes blink {
+  50% { opacity: 0 }
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -183,3 +207,4 @@ body {
         transform: rotateX(0);
     }
 }
+
