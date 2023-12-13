@@ -245,13 +245,14 @@ header {
 
 header nav {
     margin-left: auto;
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 h1 {
     margin: 0;
 }
+
 #portfolio {
     max-width: 800px;
     margin-top: 100px;
@@ -288,15 +289,6 @@ button:hover {
 }
 #result {
     font-weight: bold;
-}
-
-.container {
-    max-width: 800px;
-    margin: 100px auto 20px auto; 
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .schedule {
