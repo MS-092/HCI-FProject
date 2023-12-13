@@ -67,9 +67,58 @@
             </ul>
         </div>
     </div>
+    <h2 class="center">Examples:</h2>
+    <div class="slider">
+        <div class="slides">
+          <div class="slide">
+            <img src="img/Barbell-Bench-Press.gif" alt="Bench press">
+            <div class="caption">Bench press</div>
+          </div>
+          <div class="slide">
+            <img src="img/deadlift_exercise.webp" alt="Deadlift">
+            <div class="caption">Deadlift</div>
+          </div>
+          <div class="slide">
+            <img src="img/Barbell-Bent-Over-Row.gif" alt="Bent over">
+            <div class="caption">Barbell Row</div>
+          </div>
+          <div class="slide">
+            <img src="img/face-pull-exercise.gif" alt="Face pull">
+            <div class="caption">Face pull</div>
+          </div>
+          <div class="slide">
+            <img src="img/barbell-full-squat.gif" alt="Squat">
+            <div class="caption">Squat</div>
+          </div>
+        </div>
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
 </div>
 
 <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    
+    function changeSlide(n) {
+      showSlides((slideIndex += n));
+    }
+    
+    function showSlides(n) {
+      if (n >= slides.length) {
+        slideIndex = 0;
+      } else if (n < 0) {
+        slideIndex = slides.length - 1;
+      }
+    
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[slideIndex].classList.add('active');
+    }
+    
+    // Auto slide change every 3 seconds
+    setInterval(() => {
+      changeSlide(1);
+    }, 4500);
 
 const body = document.querySelector("body"),
       nav = document.querySelector("nav"),

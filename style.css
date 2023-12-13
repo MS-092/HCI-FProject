@@ -278,14 +278,14 @@ button {
     display: block;
     margin: 20px 0;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #4070F4;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 button:hover {
-    background-color: #45a049;
+    background-color: #4070F4;
 }
 #result {
     font-weight: bold;
@@ -299,16 +299,84 @@ button:hover {
 .time-slot {
     flex: 1;
     padding: 20px;
+    margin-right: 10px;
     background-color: #f0f0f0;
     border-radius: 6px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
   .day {
-    margin-bottom: 30px;
+    flex: 1;
+    display: flex;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   }
   
   ul {
     list-style-type: none;
-    padding-left: 20px;
+    padding-left: 10px;
   }
+  
+  .container1 {
+    max-width: 124rem;
+    padding: 0 1rem;
+    margin: 0 auto;
+  }
+
+  .slider {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slide {
+    position: relative;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slide.active {
+    display: flex;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: gray;
+    color: white;
+    padding: 5px 10px;
+    font-size: 16px;
+    display: none;
+  }
+  
+  .slide.active .caption {
+    display: block;
+  }
+
+  .center{
+    text-align: center;
+  }
+
+  .prev,.next {
+    font-size: 2em; 
+    padding: 10px 20px; 
+    margin: 0 auto; 
+    display: inline-block;
+}
