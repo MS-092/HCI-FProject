@@ -9,7 +9,6 @@
 }
 
 body {
-    background: url("https://img.freepik.com/premium-photo/contemporary-spotless-fitness-gym-center-interiorgenerative-ai_391052-10889.jpg"), #353333;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -52,6 +51,30 @@ body {
       animation: none;
   }
 
+  .hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  .hero h2 span {
+    color: #00FFFF;
+    position: relative;
+  }
+  .hero h2 span::before {
+      content: "";
+      height: 30px;
+      width: 2px;
+      position: absolute;
+      top: 50%;
+      right: -8px;
+      background: #00FFFF;
+      transform: translateY(-45%);
+      animation: blink 0.7s infinite;
+  }
+  .hero h2 span.stop-blinking::before {
+      animation: none;
+  }
+
   .hero p {
     font-size: 1.2rem;
     margin-bottom: 20px;
@@ -90,7 +113,7 @@ body {
 
 .card-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: (auto-fill, minmax(300px, 1fr));
     max-width: 1250px;
     margin: 90px auto;
     padding: 20px;
