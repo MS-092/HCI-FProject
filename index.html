@@ -36,8 +36,8 @@
 
             <div class="darkLight-searchBox">
                 <div class="dark-light">
-                    <i class='bx bx-moon moon'></i>
-                    <i class='bx bx-sun sun'></i>
+                    <i class='bx bx-sun sun' id="sunIcon"></i>
+                    <i class='bx bx-moon moon' id="moonIcon"></i>
                 </div>
                     </div>
                 </div>
@@ -61,17 +61,39 @@ const body = document.querySelector("body"),
           }
 
 // js code to toggle dark and light mode
-      modeToggle.addEventListener("click" , () =>{
+document.addEventListener("DOMContentLoaded", function() {
+    const body = document.querySelector("body");
+    const modeToggle = document.querySelector(".dark-light");
+    const moonIcon = document.querySelector(".moon");
+    const sunIcon = document.querySelector(".sun");
+
+    // Set the initial mode based on the stored value in localStorage
+    let getMode = localStorage.getItem("mode");
+    if (getMode && getMode === "dark-mode") {
+        body.classList.add("dark");
+        modeToggle.classList.add("active");
+    } else {
+        sunIcon.classList.add("active");
+    }
+
+    // Event listener for toggling dark and light mode
+    modeToggle.addEventListener("click", () => {
         modeToggle.classList.toggle("active");
         body.classList.toggle("dark");
 
-        // js code to keep user selected mode even page refresh or file reopen
-        if(!body.classList.contains("dark")){
-            localStorage.setItem("mode" , "light-mode");
-        }else{
-            localStorage.setItem("mode" , "dark-mode");
+        // Update the localStorage with the current mode
+        if (!body.classList.contains("dark")) {
+            localStorage.setItem("mode", "light-mode");
+            moonIcon.classList.add("active");
+            sunIcon.classList.remove("active");
+        } else {
+            localStorage.setItem("mode", "dark-mode");
+            sunIcon.classList.add("active");
+            moonIcon.classList.remove("active");
         }
-      });
+    });
+});
+
       
 //   js code to toggle sidebar
 sidebarOpen.addEventListener("click" , () =>{
@@ -86,9 +108,44 @@ body.addEventListener("click" , e =>{
     }
 });
 
-// js code for self typing effect
 document.addEventListener("DOMContentLoaded", function() {
     const dynamicText = document.querySelector(".hero h1 span");
+    const words = ["", "Active Lift"];
+
+    // Variables to track the position and deletion status of the word
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    const typeEffect = () => {
+        const currentWord = words[wordIndex];
+        const currentChar = currentWord.substring(0, charIndex);
+        dynamicText.textContent = currentChar;
+        dynamicText.classList.add("stop-blinking");
+
+        if (!isDeleting && charIndex < currentWord.length) {
+            // If condition is true, type the next character
+            charIndex++;
+            setTimeout(typeEffect, 200);
+        } else if (isDeleting && charIndex > 0) {
+            // If condition is true, remove the previous character
+            charIndex--;
+            setTimeout(typeEffect, 100);
+        } else {
+            // If word is deleted then switch to the next word
+            isDeleting = !isDeleting;
+            dynamicText.classList.remove("stop-blinking");
+            wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex;
+            setTimeout(typeEffect, 1200);
+        }
+    }
+
+    typeEffect();
+});
+
+// js code for self typing effect
+document.addEventListener("DOMContentLoaded", function() {
+    const dynamicText = document.querySelector(".hero h2 span");
     const words = ["", "Be Fit and Healthy", "Improve Your Mood", "Be Energized & Focused", "Boost Your Immunity", "Increase Confidence"];
 
     // Variables to track the position and deletion status of the word
@@ -128,7 +185,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <section class="hero-section">
     <div class="hero">
-        <h1> With {web name} <br> You will <span></span></h1>
+        <h1>With <span></span></h1>
+        <h2>You will <span></span></h2>
       <p>
         Join us, we will help you to track and improve your performance in health and fitness.
         </p>

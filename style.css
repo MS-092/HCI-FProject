@@ -10,14 +10,12 @@
 }
 
 
-/* ===== Colours ===== */
+/* Colours  */
 :root{
     --body-color: #E4E9F7;
-    --nav-color: #4070F4;
+    --nav-color: #242526;
     --side-nav: #010718;
     --text-color: #FFF;
-    --search-bar: #F2F2F2;
-    --search-text: #010718;
 }
 
 img {
@@ -30,14 +28,18 @@ img {
 body{
     height: 100vh;
     background-color: var(--body-color);
+    background: url("images/dark-image.jpeg");
 }
 
+/* Changes */
 body.dark{
     --body-color: #18191A;
-    --nav-color: #242526;
+    --nav-color: #4070F4;
     --side-nav: #242526;
-    --text-color: #CCC;
-    --search-bar: #242526;
+    --text-color: #FFF;
+    background: url("images/light-image.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 nav{
