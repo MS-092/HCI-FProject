@@ -112,7 +112,7 @@ body {
   }
 
 .card-list {
-    display: grid;
+    display: flex;
     grid-template-columns: (auto-fill, minmax(300px, 1fr));
     max-width: 1250px;
     margin: 90px auto;
