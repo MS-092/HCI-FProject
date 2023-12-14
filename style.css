@@ -11,10 +11,10 @@
 
 /* Colours  */
 :root{
-    --body-color: #E4E9F7;
-    --nav-color: #fff;
-    --side-nav: #fff;
-    --text-color: #FFF;
+    --body-color: #000;
+    --nav-color: #000;
+    --side-nav: #000;
+    --text-color: #000;
 }
 
 /* Dark mode */
@@ -34,7 +34,7 @@ img {
 
 body{
     height: 100vh;
-    background-color: var(--body-color);
+    background-color: black !important;
     background: url("images/dark-image.jpeg");
     color: #0000;
 }
@@ -45,10 +45,11 @@ body.dark{
     --nav-color: #4070F4;
     --side-nav: #4070F4;
     --text-color: #242526;
-    background: url("images/light-image.jpeg");
+    background: url("images/light-image.avif");
     background-repeat: no-repeat;
     background-size: cover;
     color: #FFF;
+    --text-color:var(--body-color);
 }
 
 nav{
@@ -246,9 +247,11 @@ body {
     padding: 0;
     background-color: #f2f2f2;
 }
+
+/*User Persona - Profile*/
 header {
     background-color: #4070F4;
-    color: #4070F4;
+    color: #fff;
     padding: 20px;
     text-align: center;
     overflow: hidden;
