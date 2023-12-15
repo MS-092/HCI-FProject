@@ -79,6 +79,7 @@ body.dark::before {
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
   animation: fadeInOverlay;
+  animation: fadeIn
 }
 
 form {
