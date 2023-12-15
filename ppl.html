@@ -35,8 +35,8 @@
 
             <div class="darkLight-searchBox">
                 <div class="dark-light">
-                    <i class='bx bx-moon moon'></i>
-                    <i class='bx bx-sun sun'></i>
+                    <i class='bx bx-sun sun' id="sunIcon"></i>
+                    <i class='bx bx-moon moon' id="moonIcon"></i>
                 </div>
                     </div>
                 </div>
@@ -134,17 +134,59 @@ const body = document.querySelector("body"),
           }
 
 // js code to toggle dark and light mode
-      modeToggle.addEventListener("click" , () =>{
+document.addEventListener("DOMContentLoaded", function() {
+    const body = document.querySelector("body");
+    const modeToggle = document.querySelector(".dark-light");
+    const moonIcon = document.querySelector(".moon");
+    const sunIcon = document.querySelector(".sun");
+    const heroH1 = document.querySelector(".hero h1");
+    const heroH2 = document.querySelector(".hero h2");
+    const heroP = document.querySelector(".hero p");
+
+    // Set the initial mode based on the stored value in localStorage
+    let getMode = localStorage.getItem("mode");
+    if (getMode && getMode === "dark-mode") {
+        body.classList.add("dark");
+        modeToggle.classList.add("active");
+        updateHeroColors("dark");
+    } else {
+        sunIcon.classList.add("active");
+        updateHeroColors("light");
+    }
+
+    // Event listener for toggling dark and light mode
+    modeToggle.addEventListener("click", () => {
         modeToggle.classList.toggle("active");
         body.classList.toggle("dark");
 
-        // js code to keep user selected mode even page refresh or file reopen
-        if(!body.classList.contains("dark")){
-            localStorage.setItem("mode" , "light-mode");
-        }else{
-            localStorage.setItem("mode" , "dark-mode");
+        // Update the localStorage with the current mode
+        if (!body.classList.contains("dark")) {
+            localStorage.setItem("mode", "light-mode");
+            moonIcon.classList.add("active");
+            sunIcon.classList.remove("active");
+            updateHeroColors("light");
+        } else {
+            localStorage.setItem("mode", "dark-mode");
+            sunIcon.classList.add("active");
+            moonIcon.classList.remove("active");
+            updateHeroColors("dark");
         }
-      });
+    });
+
+    // Function to update hero text colors based on the mode
+    function updateHeroColors(mode) {
+        if (mode === "dark") {
+            heroH1.style.color = "#000"; // Your desired color for h1 in dark mode
+            heroH2.style.color = "#000"; // Your desired color for h2 in dark mode
+            heroP.style.color = "#000";
+        } 
+        else {
+            heroH1.style.color = "#fff"; // Your desired color for h1 in light mode
+            heroH2.style.color = "#fff"; // Your desired color for h2 in light mode
+            heroP.style.color = "#fff";
+        }
+    }
+});
       
 //   js code to toggle sidebar
 sidebarOpen.addEventListener("click" , () =>{
