@@ -30,7 +30,7 @@
                     <li><a href="exercises.html">Exercises</a></li>
                     <li><a href="nutrition.html">Nutrition</a></li>
                     <li><a href="membership.html">Membership</a></li>
-                    <li><a href="register.html">Register</a></li>
+                    <li><a href="login.html">Register</a></li>
                 </ul>
             </div>
 
@@ -147,6 +147,11 @@ document.addEventListener("DOMContentLoaded", function() {
         dynamicText.textContent = currentChar;
         dynamicText.classList.add("stop-blinking");
 
+        if (currentWord === "Active Lift" && charIndex === currentWord.length) {
+            // If the word is "Active Lift" and it's fully displayed, stop the animation
+            return;
+        }
+
         if (!isDeleting && charIndex < currentWord.length) {
             // If condition is true, type the next character
             charIndex++;
@@ -166,6 +171,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     typeEffect();
 });
+
 
 // js code for self typing effect (h2)
 document.addEventListener("DOMContentLoaded", function() {
