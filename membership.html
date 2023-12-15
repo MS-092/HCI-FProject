@@ -9,17 +9,18 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style-index.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
     <nav>
         <div class="nav-bar">
             <i class='bx bx-menu sidebarOpen' ></i>
-            <span class="logo navLogo"><a href="index.html">Health&Fitness App</a></span>
+            <span class="logo navLogo"><a href="index.html">Active <i class="fas fa-dumbbell fa-2x"></i> Lift</a></span>
 
             <div class="menu">
                 <div class="logo-toggle">
-                    <span class="logo"><a href="exercises.html">Health&Fitness App</a></span>
+                    <span class="logo"><a href="index.html">Active <i class="fas fa-dumbbell fa-2x"></i> Lift</a></span>
                     <i class='bx bx-x siderbarClose'></i>
                 </div>
 
@@ -80,49 +81,68 @@
       </div>
     </div>
 
-    <script>
+  <script>
 
-        const body = document.querySelector("body"),
-              nav = document.querySelector("nav"),
-              modeToggle = document.querySelector(".dark-light"),
-              searchToggle = document.querySelector(".searchToggle"),
-              sidebarOpen = document.querySelector(".sidebarOpen"),
-              siderbarClose = document.querySelector(".siderbarClose");
-        
-              let getMode = localStorage.getItem("mode");
-                  if(getMode && getMode === "dark-mode"){
-                    body.classList.add("dark");
-                  }
-        
-        // js code to toggle dark and light mode
-              modeToggle.addEventListener("click" , () =>{
-                modeToggle.classList.toggle("active");
-                body.classList.toggle("dark");
-        
-                // js code to keep user selected mode even page refresh or file reopen
-                if(!body.classList.contains("dark")){
-                    localStorage.setItem("mode" , "light-mode");
-                }else{
-                    localStorage.setItem("mode" , "dark-mode");
+      const body = document.querySelector("body"),
+            nav = document.querySelector("nav"),
+            modeToggle = document.querySelector(".dark-light"),
+            searchToggle = document.querySelector(".searchToggle"),
+            sidebarOpen = document.querySelector(".sidebarOpen"),
+            siderbarClose = document.querySelector(".siderbarClose");
+      
+            let getMode = localStorage.getItem("mode");
+                if(getMode && getMode === "dark-mode"){
+                  body.classList.add("dark");
                 }
-              });
-              
-        //   js code to toggle sidebar
-        sidebarOpen.addEventListener("click" , () =>{
-            nav.classList.add("active");
-        });
-        
-        body.addEventListener("click" , e =>{
-            let clickedElm = e.target;
-        
-            if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
-                nav.classList.remove("active");
-            }
-        });
-        
+      
+// js code to toggle dark and light mode
+document.addEventListener("DOMContentLoaded", function() {
+  const body = document.querySelector("body");
+  const modeToggle = document.querySelector(".dark-light");
+  const moonIcon = document.querySelector(".moon");
+  const sunIcon = document.querySelector(".sun");
 
+  // Set the initial mode based on the stored value in localStorage
+  let getMode = localStorage.getItem("mode");
+  if (getMode && getMode === "dark-mode") {
+      body.classList.add("dark");
+      modeToggle.classList.add("active");
+  } else {
+      sunIcon.classList.add("active");
+  }
 
-    </script>
+  // Event listener for toggling dark and light mode
+  modeToggle.addEventListener("click", () => {
+      modeToggle.classList.toggle("active");
+      body.classList.toggle("dark");
+
+      // Update the localStorage with the current mode
+      if (!body.classList.contains("dark")) {
+          localStorage.setItem("mode", "light-mode");
+          moonIcon.classList.add("active");
+          sunIcon.classList.remove("active");
+      } else {
+          localStorage.setItem("mode", "dark-mode");
+          sunIcon.classList.add("active");
+          moonIcon.classList.remove("active");
+      }
+  });
+});
+            
+      //   js code to toggle sidebar
+      sidebarOpen.addEventListener("click" , () =>{
+          nav.classList.add("active");
+      });
+      
+      body.addEventListener("click" , e =>{
+          let clickedElm = e.target;
+      
+          if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
+              nav.classList.remove("active");
+          }
+      });
+
+  </script>
 
 </body>
 </html>

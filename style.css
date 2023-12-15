@@ -92,6 +92,7 @@ nav .nav-bar .logo a{
     font-weight: 500;
     color: #FFF;
     text-decoration: none;
+    text-align: center;
     background-image:("images/muscle.jpeg");
 }
 
