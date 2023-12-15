@@ -150,9 +150,6 @@ body {
     text-decoration: none;
     border: 2px solid transparent;
     transition: border 0.5s ease;
-    position: relative;
-    overflow: hidden;
-    transform: translateX(0);
 }
 
 .card-list .card-item:hover {
@@ -282,3 +279,4 @@ body {
         transform: rotateX(0);
     }
 }
+
