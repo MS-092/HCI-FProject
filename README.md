@@ -9,6 +9,9 @@ This is our project made by:
     <li>Steven</li>
 </ul>
 
+## Go to our website with this link:
+https://ms-092.github.io/HCI-FProject/
+
 ## Introduction
 
 Our online fitness hub is designed to empower you in achieving your health goals, offering a wealth of resources, tools, and expert guidance right at your fingertips.
