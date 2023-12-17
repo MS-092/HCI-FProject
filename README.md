@@ -44,3 +44,7 @@ Membership
 
 Register
 <img src="images/RegisterPage.png">
+
+At Active lift, we believe in making fitness accessible, enjoyable, and sustainable for everyone. Join us on this transformative journey towards a healthier, happier you. Let's embark on this adventure together!"
+
+
