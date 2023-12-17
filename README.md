@@ -3,9 +3,11 @@
 Welcome to Active lift, where your wellness journey begins and thrives! 
 
 This is our project made by:
--Ryan
--Matthew
--Steven
+<ul>
+    <li>Ryan</li>
+    <li>Matthew</li>
+    <li>Steven</li>
+</ul>
 
 ## Introduction
 
@@ -14,14 +16,15 @@ Our online fitness hub is designed to empower you in achieving your health goals
 ## Features
 
 Our web provides the features:
-
--**Homepage**
--**Profile**
--**Feedback**
--**Exercises**
--**Nutrition**
--**Membership**
--**Register**
+<ul>
+    <li>Homepage</li>  
+    <li>Profile </li>
+    <li>Feedback</li>
+    <li>Exercises</li>
+    <li>Nutrition</li>
+    <li>Membership</li>
+    <li>Register</li>
+</ul>
 
 ## Design
 Homepage
