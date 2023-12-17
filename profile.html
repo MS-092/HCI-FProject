@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-     <title>User Profile Page</title>
+    <title>User Profile Page</title>
 </head>
 <body>
     <nav>
@@ -36,143 +35,244 @@
 
             <div class="darkLight-searchBox">
                 <div class="dark-light">
-<i class='bx bx-sun sun' id="sunIcon"></i>
+                    <i class='bx bx-sun sun' id="sunIcon"></i>
                     <i class='bx bx-moon moon' id="moonIcon"></i>
-                </div>
-                    </div>
                 </div>
             </div>
         </div>
     </nav>
 
+    <script>
+        const body = document.querySelector("body"),
+              nav = document.querySelector("nav"),
+              modeToggle = document.querySelector(".dark-light"),
+              searchToggle = document.querySelector(".searchToggle"),
+              sidebarOpen = document.querySelector(".sidebarOpen"),
+              siderbarClose = document.querySelector(".siderbarClose");
 
-<script>
-
-const body = document.querySelector("body"),
-      nav = document.querySelector("nav"),
-      modeToggle = document.querySelector(".dark-light"),
-      searchToggle = document.querySelector(".searchToggle"),
-      sidebarOpen = document.querySelector(".sidebarOpen"),
-      siderbarClose = document.querySelector(".siderbarClose");
-
-      let getMode = localStorage.getItem("mode");
-          if(getMode && getMode === "dark-mode"){
+        let getMode = localStorage.getItem("mode");
+        if (getMode && getMode === "dark-mode"){
             body.classList.add("dark");
-          }
+        }
 
-// js code to toggle dark and light mode
-document.addEventListener("DOMContentLoaded", function() {
-    const body = document.querySelector("body");
-    const modeToggle = document.querySelector(".dark-light");
-    const moonIcon = document.querySelector(".moon");
-    const sunIcon = document.querySelector(".sun");
+        document.addEventListener("DOMContentLoaded", function() {
+            const body = document.querySelector("body");
+            const modeToggle = document.querySelector(".dark-light");
+            const moonIcon = document.querySelector(".moon");
+            const sunIcon = document.querySelector(".sun");
 
-    // Set the initial mode based on the stored value in localStorage
-    let getMode = localStorage.getItem("mode");
-    if (getMode && getMode === "dark-mode") {
-        body.classList.add("dark");
-        modeToggle.classList.add("active");
+            let getMode = localStorage.getItem("mode");
+            if (getMode && getMode === "dark-mode") {
+                body.classList.add("dark");
+                modeToggle.classList.add("active");
+            } else {
+                sunIcon.classList.add("active");
+            }
+
+            modeToggle.addEventListener("click", () => {
+                modeToggle.classList.toggle("active");
+                body.classList.toggle("dark");
+
+                if (!body.classList.contains("dark")) {
+                    localStorage.setItem("mode", "light-mode");
+                    moonIcon.classList.add("active");
+                    sunIcon.classList.remove("active");
+                } else {
+                    localStorage.setItem("mode", "dark-mode");
+                    sunIcon.classList.add("active");
+                    moonIcon.classList.remove("active");
+                }
+            });
+        });
+
+        sidebarOpen.addEventListener("click", () => {
+            nav.classList.add("active");
+        });
+
+        body.addEventListener("click", e => {
+            let clickedElm = e.target;
+
+            if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")) {
+                nav.classList.remove("active");
+            }
+        });
+    </script>
+
+    <link rel="stylesheet" href="style-index.css">
+
+    <div id="portfolio">
+        <header>
+            <h1>Welcome back, Justin!</h1>
+            <img src="" alt="Muscle Justin" sizes=""/>
+        </header>
+        <br>
+        <h2>BMI Calculator</h2>
+        <h2>Metrics Unit mode</h2>
+        <label for="age">Age:</label>
+        <input type="number" id="age" placeholder="Enter your age">
+        <label for="height">Height (cm):</label>
+        <input type="number" id="height" placeholder="Enter your height (cm)">
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" placeholder="Enter your weight (kg)">
+        <label for="gender">Gender:</label>
+        <select id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <button onclick="calculateBMI()">Calculate BMI</button>
+        <p id="result">Your BMI will be calculated here.</p>
+    </div>
+
+    <div id="portfolio">
+        <h2>Calorie Calculator</h2>
+        <label for="calorie-age">Age (years):</label>
+        <input type="number" id="calorie-age" placeholder="Enter your age">
+
+        <label for="calorie-gender">Gender:</label>
+        <select id="calorie-gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label for="calorie-weight">Weight (kg):</label>
+        <input type="number" id="calorie-weight" placeholder="Enter your weight (kg)">
+
+        <label for="calorie-height">Height (cm):</label>
+        <input type="number" id="calorie-height" placeholder="Enter your height (cm)">
+
+        <label for="calorie-exercise-frequency">Exercise Frequency:</label>
+        <select id="calorie-exercise-frequency">
+            <option value="none">No exercises</option>
+            <option value="1-3">1-3 times per week</option>
+            <option value="4-6">4-6 times per week</option>
+            <option value="everyday">Everyday</option>
+        </select>
+
+        <label for="calorie-goal">Goal:</label>
+        <select id="calorie-goal">
+            <option value="maintain">Maintain Weight</option>
+            <option value="lose">Lose Weight</option>
+            <option value="gain">Gain Weight</option>
+        </select>
+
+        <button onclick="calculateCalories()">Calculate Calories</button>
+        <p id="calories-result">Estimated Daily Calories: </p>
+    </div>
+
+    <script>
+// bmi calculation
+function calculateBMI() {
+    const height = parseFloat(document.getElementById('height').value);
+    const weight = parseFloat(document.getElementById('weight').value);
+    const gender = document.getElementById('gender').value;
+    const age = parseInt(document.getElementById('age').value);
+
+    if (isNaN(age) || isNaN(height) || isNaN(weight)) {
+        document.getElementById('result').textContent = 'Please enter valid numeric values for age, height, and weight.';
+        return;
+    }
+
+    // Add age condition (for example, between 10 and 80 years)
+    if (age < 10 || age > 80) {
+        document.getElementById('result').textContent = 'Please enter a valid age between 10 and 80 years.';
+        return;
+    }
+
+    const bmi = calculateBMIValue(height, weight);
+    const interpretation = getBMIInterpretation(bmi, gender);
+    document.getElementById('result').textContent = `Your BMI: ${bmi.toFixed(2)} - ${interpretation}`;
+}
+
+function calculateBMIValue(height, weight) {
+    const heightMeters = height / 100;
+    return weight / (heightMeters * heightMeters);
+}
+
+function getBMIInterpretation(bmi, gender) {
+    if (gender === 'male') {
+        if (bmi <= 18) {
+            return 'Underweight';
+        } else if (bmi <= 25) {
+            return 'Healthy weight';
+        }
+        else if (bmi > 30) {
+            return 'Obese';
+        } else {
+            return 'Overweight';
+        }
     } else {
-        sunIcon.classList.add("active");
-    }
-
-    // Event listener for toggling dark and light mode
-    modeToggle.addEventListener("click", () => {
-        modeToggle.classList.toggle("active");
-        body.classList.toggle("dark");
-
-        // Update the localStorage with the current mode
-        if (!body.classList.contains("dark")) {
-            localStorage.setItem("mode", "light-mode");
-            moonIcon.classList.add("active");
-            sunIcon.classList.remove("active");
-        } else {
-            localStorage.setItem("mode", "dark-mode");
-            sunIcon.classList.add("active");
-            moonIcon.classList.remove("active");
+        if (bmi <= 18) {
+            return 'Underweight';
+        } else if (bmi <= 25) {
+            return 'Healthy weight';
         }
-    });
-});
-      
-//   js code to toggle sidebar
-sidebarOpen.addEventListener("click" , () =>{
-    nav.classList.add("active");
-});
-
-body.addEventListener("click" , e =>{
-    let clickedElm = e.target;
-
-    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
-        nav.classList.remove("active");
-    }
-});
-
-</script>
-
-<link rel="stylesheet" href="style-index.css">
-
-<div id="portfolio">
-    <header>
-        <h1>Welcome back, Justin!</h1>
-        <img src="images/muscle.jpeg" alt="Muscle Justin" sizes=""/>
-    </header>
-
-    <h2>BMI Calculator</h2>
-    <label for="height">Height (cm):</label>
-    <input type="number" id="height" placeholder="Enter your height">
-    <label for="weight">Weight (kg):</label>
-    <input type="number" id="weight" placeholder="Enter your weight">
-    <label for="gender">Gender:</label>
-    <select id="gender">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-    </select>
-    <button onclick="calculateBMI()">Calculate BMI</button>
-    <p id="result">Your BMI will be calculated here.</p>
-</div>
-
-
-<script>
-    function calculateBMI() {
-        const height = parseFloat(document.getElementById('height').value);
-        const weight = parseFloat(document.getElementById('weight').value);
-        const gender = document.getElementById('gender').value;
-
-        if (!isNaN(height) && !isNaN(weight)) {
-            const bmi = calculateBMIValue(height, weight);
-            const interpretation = getBMIInterpretation(bmi, gender);
-            document.getElementById('result').textContent = `Your BMI: ${bmi.toFixed(2)} - ${interpretation}`;
+        else if (bmi > 30) {
+            return 'Obese';
         } else {
-            document.getElementById('result').textContent = 'Please enter valid height and weight values.';
+            return 'Overweight';
         }
     }
+}
 
-    function calculateBMIValue(height, weight) {
-        // BMI formula: weight (kg) / (height (m) * height (m))
-        const heightMeters = height / 100;
-        return weight / (heightMeters * heightMeters);
-    }
+// calorie calculator for user to know
+        function calculateCalories() {
+            const age = parseInt(document.getElementById('calorie-age').value);
+            const gender = document.getElementById('calorie-gender').value;
+            const weight = parseFloat(document.getElementById('calorie-weight').value);
+            const height = parseFloat(document.getElementById('calorie-height').value);
+            const exerciseFrequency = document.getElementById('calorie-exercise-frequency').value;
+            const goal = document.getElementById('calorie-goal').value;
 
-    function getBMIInterpretation(bmi, gender) {
-        if (gender === 'male') {
-            if (bmi < 18.5) {
-                return 'Underweight';
-            } else if (bmi < 24.9) {
-                return 'Healthy weight';
-            } else {
-                return 'Overweight';
+            if (isNaN(age) || isNaN(weight) || isNaN(height)) {
+                document.getElementById('calories-result').textContent = 'Please enter valid numeric values for age, weight, and height.';
+                return;
             }
-        } else {
-            if (bmi < 18.5) {
-                return 'Underweight';
-            } else if (bmi < 24.9) {
-                return 'Healthy weight';
+
+            const bmr = calculateBMR(age, gender, weight, height);
+            const totalCalories = calculateTotalCalories(bmr, exerciseFrequency, goal);
+
+            document.getElementById('calories-result').textContent = `Estimated Daily Calories: ${totalCalories.toFixed(2)} calories`;
+        }
+
+        function calculateBMR(age, gender, weight, height) {
+            if (gender === 'male') {
+                return 10 * weight + 6.25 * height - 5 * age + 5;
             } else {
-                return 'Overweight';
+                return 10 * weight + 6.25 * height - 5 * age - 161;
             }
         }
-    }
-</script>
 
+        function calculateTotalCalories(bmr, exerciseFrequency, goal) {
+            let totalCalories;
+
+            switch (exerciseFrequency) {
+                case 'none':
+                    totalCalories = bmr * 1.2;
+                    break;
+                case '1-3':
+                    totalCalories = bmr * 1.375;
+                    break;
+                case '4-6':
+                    totalCalories = bmr * 1.55;
+                    break;
+                case 'everyday':
+                    totalCalories = bmr * 1.9;
+                    break;
+                default:
+                    totalCalories = 0;
+            }
+
+            switch (goal) {
+                case 'maintain':
+                    return totalCalories;
+                case 'lose':
+                    return totalCalories - 200;
+                case 'gain':
+                    return totalCalories + 300;
+                default:
+                    return totalCalories;
+            }
+        }
+    </script>
 </body>
 </html>

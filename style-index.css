@@ -328,3 +328,53 @@ button:hover {
   background-color: #45a049;
 }
 
+/*Feedback Form*/
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
