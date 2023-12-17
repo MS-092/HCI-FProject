@@ -11,6 +11,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <!--Email Javascript function-->
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        // Public key from API
+        emailjs.init("xJd2pIcuwHnz66ZA_");
+    })();
+    </script>
+
+    <script src="script.js"></script>
     
 
      <title>Home Page</title>
@@ -281,30 +294,21 @@ document.addEventListener("DOMContentLoaded", function() {
         </a>
     </div>
 
-    <button id="feedbackBtn" onclick="showFeedbackForm()">Give Feedback</button>
+    <footer>
+        <form>
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" required></textarea>
 
-  <div id="feedbackForm" class="feedback-form">
-    <span onclick="closeFeedbackForm()" class="close-btn">&times;</span>
-    <h2>Feedback</h2>
-    <p>We'd love to hear from you!</p>
-    <form id="feedbackSubmitForm" onsubmit="submitFeedback(event)">
-      <div class="rating">
-        <label for="rating">Rate your experience:</label>
-        <input type="number" id="rating" name="rating" min="1" max="5" required>
-      </div>
-      <div>
-        <label for="feedback">Your feedback:</label>
-        <textarea id="feedback" name="feedback" rows="4" required></textarea>
-      </div>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
 
-  <div id="thankYouMessage" class="thank-you-message">
-    <span onclick="closeThankYouMessage()" class="close-btn">&times;</span>
-    <h2>Thank You!</h2>
-    <p>Thank you for your feedback.</p>
-  </div>
+            <label for="email">Your Email:</label>
+            <input type="text" id="email" name="email" required>
+        
+            <button type="submit" onClick="sendEmail()">Submit</button>
+
+        </form>
+    </footer>
 
 </body>
 </html>
