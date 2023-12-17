@@ -15,7 +15,7 @@ Our online fitness hub is designed to empower you in achieving your health goals
 
 ## Features
 
-Our web provides the features:
+Our web provides the Following features:
 <ul>
     <li>Homepage</li>  
     <li>Profile </li>
