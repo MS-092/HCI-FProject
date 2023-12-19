@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function() {
         Scroll down to learn more about what we will cover for you.
       </p>
       <div class="buttons">
-        <a href="login.html" class="join">Join Now</a>
+        <a href="login.html" class="join">Register</a>
       </div>
     </div>
 
@@ -292,18 +292,26 @@ document.addEventListener("DOMContentLoaded", function() {
             <h3>Don't forget your diet as well</h3>
             <h4>Shows the nutrition and what do you put inside your body and track your intakes</h4>
         </a>
+        <a href="membership.html" class="card-item">
+            <img src="images/membership.jpeg" alt="Card Image">
+            <span>Membership</span>
+            <h3>Don't forget to check our membership</h3>
+            <h4>Where our team will be providing you more personal and advance services</h4>
+        </a>
+    
     </div>
+    
 
     <footer>
         <form>
             <label for="feedback">Feedback:</label>
-            <textarea id="feedback" name="feedback" rows="4" required></textarea>
+            <textarea id="feedback" name="feedback" rows="4" placeholder="Fill out this feedback box" required></textarea>
 
             <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" placeholder="Enter your name:" required>
 
             <label for="email">Your Email:</label>
-            <input type="text" id="email" name="email" required>
+            <input type="text" id="email" name="email" placeholder="Enter your email:" required>
         
             <button type="submit" onClick="sendEmail()">Submit</button>
 

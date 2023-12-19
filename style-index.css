@@ -13,6 +13,30 @@ body {
     background-size: cover;
 }
 
+img {
+  width: 30%;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+  object-fit: cover;
+  margin: 0 auto;
+  margin-right: 20px;
+}
+
+.header-content {
+  display: flex; /* Use flexbox to align items horizontally */
+  align-items: center; /* Align items vertically in the center */
+  justify-content: center; 
+}
+
+.text-content {
+  margin-left: 20px; /* Adjust the margin as needed */
+}
+
+ol {
+  font-weight: bold;
+  color: #007BFF; /* Change the color to your preference */
+}
+
 .dark {
   --background-color: #1a1a1a;
   --text-color: #1a1a1a;
