@@ -418,7 +418,7 @@ button:hover {
   justify-content: center;
   align-items: stretch;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 40px;
   padding: 20px;
   font-family: 'Open Sans', sans-serif;
 }
@@ -492,6 +492,6 @@ button:hover {
 /* Media query for responsiveness */
 @media screen and (max-width: 768px) {
   .card {
-    flex: 1 1 calc(50% - 20px);
+    margin-top: 5%;
   }
 }
