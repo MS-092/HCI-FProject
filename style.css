@@ -11,6 +11,7 @@
 
 /* Colours  */
 :root{
+<<<<<<< Updated upstream
     --body-color: #000;
     --nav-color: #000;
     --side-nav: #000;
@@ -22,6 +23,14 @@ dark {
     --background-color: #1a1a1a;
     --text-color: #1a1a1a;
     --link-color: #00FFFF;
+=======
+    --body-color: #E4E9F7;
+    --nav-color: #4070F4;
+    --side-nav: #010718;
+    --text-color: #000;
+    --search-bar: #F2F2F2;
+    --search-text: #fff;
+>>>>>>> Stashed changes
 }
 
 img {
@@ -42,6 +51,7 @@ body{
 /* Changes */
 body.dark{
     --body-color: #18191A;
+<<<<<<< Updated upstream
     --nav-color: #4070F4;
     --side-nav: #4070F4;
     --text-color: #242526;
@@ -50,6 +60,12 @@ body.dark{
     background-size: cover;
     color: #FFF;
     --text-color:var(--body-color);
+=======
+    --nav-color: #242526;
+    --side-nav: #242526;
+    --text-color: #FFF;
+    --search-bar: #242526;
+>>>>>>> Stashed changes
 }
 
 nav{
@@ -230,6 +246,7 @@ body.dark .search-field i{
         display: block;
         margin-top: 20px;
         color: #fff;
+<<<<<<< Updated upstream
     }
     
     .schedule {
@@ -239,6 +256,8 @@ body.dark .search-field i{
 
     .time-slot {
         width: 100%;
+=======
+>>>>>>> Stashed changes
     }
 }
 
